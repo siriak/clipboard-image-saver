@@ -8,27 +8,30 @@ from win10toast import ToastNotifier
 toaster = ToastNotifier()
 
 def run_loop():
-    old_img_list = None
+    new_hash = old_hash = 0
     while True:  # The event loop that checks every 10 seconds for new image
         try:
-            if img_in_clipboard():
-                new_img = grabclipboard()
-                new_img_list = list(new_img.getdata())
-                if img_changed(new_img_list, old_img_list):
-                    save_img(new_img)
-                    old_img_list = new_img_list
-                    send_message('Image saved', 3)
+            new_hash = process_clipboard(old_hash)
+            if new_hash != old_hash:
+                old_hash = new_hash
+                send_message('Image saved', 3)
         except Exception as e:
             send_message('Error occured: ' + e.args[0], 3600)
         sleep(10)
 
+def process_clipboard(old_hash):
+    if not img_in_clipboard():
+        return old_hash
+    new_img = grabclipboard()
+    new_hash = hash(tuple(new_img.getdata()))
+    if new_hash == old_hash:
+        return old_hash
+    save_img(new_img)
+    new_img = None
+    return new_hash
+
 def img_in_clipboard():
     return IsClipboardFormatAvailable(8)
-
-def img_changed(new_img_list, old_img_list):
-    if old_img_list is None:
-        return True
-    return new_img_list != old_img_list
 
 def save_img(im):
     file_timestamp = datetime.now().strftime('%Y.%m.%d_%H.%M.%S')
