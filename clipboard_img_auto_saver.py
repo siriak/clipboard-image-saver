@@ -27,7 +27,6 @@ def process_clipboard(old_hash):
     if new_hash == old_hash:
         return old_hash
     save_img(new_img)
-    new_img = None
     return new_hash
 
 def img_in_clipboard():
