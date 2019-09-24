@@ -1,1 +1,1 @@
-start pythonw clipboard_img_auto_saver.py
+start pythonw clipboard_img_auto_saver_windows.py

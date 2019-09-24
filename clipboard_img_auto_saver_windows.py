@@ -1,10 +1,9 @@
 from datetime import datetime
-from PIL.ImageGrab import grabclipboard
 from PIL.Image import new
-from win32clipboard import IsClipboardFormatAvailable
 from time import sleep
+from win32clipboard import IsClipboardFormatAvailable
 from win10toast import ToastNotifier
-
+from PIL.ImageGrab import grabclipboard
 toaster = ToastNotifier()
 
 def run_loop():
@@ -40,4 +39,4 @@ def send_message(msg, dur):
     toaster.show_toast('Clipboard image saver', msg, duration=dur)
 
 if __name__ == '__main__':
-     run_loop()
+    run_loop()
