@@ -6,7 +6,7 @@ gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk
 from gi.repository.GdkPixbuf import Pixbuf
 cb = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
-import subprocess
+import os
 
 def run_loop():
     new_hash = old_hash = 0
@@ -36,10 +36,10 @@ def img_in_clipboard():
 
 def save_img(im):
     file_timestamp = datetime.now().strftime('%Y.%m.%d_%H.%M.%S')
-    im.savev('/home/siriak/Pictures/' + file_timestamp + '.jpg', 'jpeg', ["quality"], ["100"])
+    im.savev('/home/siriak/Pictures/' + file_timestamp + '.jpg', 'jpeg', ['quality'], ['100'])
 
 def send_message(msg):
-    subprocess.Popen(['notify-send', msg])
+    os.system('notify-send -t 1000 "' + msg + '"')
 
 if __name__ == '__main__':
     run_loop()
