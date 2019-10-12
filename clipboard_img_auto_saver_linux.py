@@ -22,6 +22,8 @@ def process_clipboard(old_hash):
     if not img_in_clipboard():
         return old_hash
     new_img = cb.wait_for_image()
+    if new_img is None:
+        return old_hash
     new_pixels = new_img.get_pixels()
     new_hash = hash(tuple(new_pixels))
     if new_hash == old_hash:
