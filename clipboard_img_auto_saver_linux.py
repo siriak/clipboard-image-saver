@@ -8,15 +8,18 @@ import os
 
 def run_loop():
     new_hash = old_hash = 0
-    while True:  # The event loop that checks every 10 seconds for new image
+    delay = 10
+    while True:  # The event loop that checks every <delay> seconds for new image
         try:
             new_hash = process_clipboard(old_hash)
             if new_hash != old_hash:
+                delay //= 2
                 old_hash = new_hash
                 send_message('Image saved')
         except Exception as e:
-            send_message('Error occured: ' + e.args[0])
-        sleep(10)
+            send_message('Error occurred: ' + e.args[0])
+        sleep(delay)
+        delay = min(delay + 1, 60)
 
 def process_clipboard(old_hash):
     if not img_in_clipboard():
