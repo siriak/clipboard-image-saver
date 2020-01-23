@@ -8,7 +8,7 @@ python -m pip install pillow pywin32 win10toast
 2. Customize your save location in clipboard_image_auto_saver.py.
 Open clipboard_image_auto_saver.py in your text editor of choise and edit IMAGE_SAVE_DIRECTORY_WINDOWS constant.
 3. Run the clipboard_image_auto_saver.bat file by double clicking it. The batch file is provided to launch the python script in background.
-4. Add shortcut to clipboard_image_auto_saver.bat in C:\Users\\<your user>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup. Windows will start script automatically on Windows load.
+4. Add shortcut to clipboard_image_auto_saver.bat in C:\Users\<your user>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup. Create it first by right clicking on the clipboard_image_auto_saver.bat file and choose 'Create shortcut' from context menu. After that move brand new shotcut to C:\Users\<your user>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup folder. Windows will start script automatically on Windows load.
 
 ## Usage on Linux
 1. Customize your save location in clipboard_image_auto_saver.py.
