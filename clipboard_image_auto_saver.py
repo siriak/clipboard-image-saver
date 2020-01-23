@@ -21,9 +21,10 @@ else:
     pass
 
 
-def run_loop(is_image_in_clipboard, get_image_from_clipboard, get_pixels_from_image, save_image, show_notification):
+def run(is_image_in_clipboard, get_image_from_clipboard, get_pixels_from_image, save_image, show_notification):
     old_hash = 0
     delay = MAX_DELAY_SECONDS
+    show_notification('Clipboard Image Auto Saver is running')
     while True:  # The event loop that checks every <delay> seconds for new image
         sleep(delay)
         delay = min(delay + 1, MAX_DELAY_SECONDS)
@@ -110,4 +111,4 @@ get_pixels_from_image = get_pixels_from_image_map[os.name]
 save_image = save_image_map[os.name]
 show_notification = show_notification_map[os.name]
 
-run_loop(is_image_in_clipboard, get_image_from_clipboard, get_pixels_from_image, save_image, show_notification)
+run(is_image_in_clipboard, get_image_from_clipboard, get_pixels_from_image, save_image, show_notification)
