@@ -4,8 +4,6 @@ import win10toast
 
 toaster = win10toast.ToastNotifier()
 
-IMAGE_SAVE_DIRECTORY = 'E:\\OneDrive\\Images\\'
-
 def is_image_in_clipboard():
     return IsClipboardFormatAvailable(8)
 
@@ -18,8 +16,8 @@ def get_pixels_from_image(image):
     return image.getdata()
 
 
-def save_image(image, timestamp):
-    image.save(IMAGE_SAVE_DIRECTORY + timestamp + '.png', 'PNG')
+def save_image(image, save_directory, timestamp):
+    image.save(save_directory + timestamp + '.png', 'PNG')
 
 
 def show_notification(message, duration_seconds):
