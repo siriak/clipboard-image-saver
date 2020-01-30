@@ -4,6 +4,7 @@ from time import sleep
 import config
 
 MAX_DELAY_SECONDS = config.MAX_DELAY_SECONDS
+MIN_DELAY_SECONDS = config.MIN_DELAY_SECONDS
 NOTIFICATION_DURATION_SECONDS = config.NOTIFICATION_DURATION_SECONDS
 
 if os.name == 'posix':
@@ -35,7 +36,7 @@ while True:  # The event loop that checks every <delay> seconds for new image
         new_hash = hash(tuple(get_pixels_from_image(image)))
         if new_hash == old_hash:
             continue
-        delay //= 2
+        delay = max(delay // 2, MIN_DELAY_SECONDS)
         old_hash = new_hash
         timestamp = datetime.now().strftime('%Y.%m.%d_%H.%M.%S')
         save_image(image, IMAGE_SAVE_DIRECTORY, timestamp)
