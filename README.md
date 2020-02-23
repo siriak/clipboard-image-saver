@@ -1,4 +1,4 @@
-Clipboard Image Auto Saver is a Python script which monitor OS's clipboard and automatically saves images from there.
+Clipboard Image Auto Saver is a Python script which monitors OS's clipboard and automatically saves images from there.
 
 ## Usage on Windows
 #### 1. Install required packages using package manager [pip](https://pip.pypa.io/en/stable/).
