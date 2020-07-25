@@ -23,7 +23,7 @@ else:
 
 old_hash = 0
 delay = MAX_DELAY_SECONDS
-show_notification('Clipboard Image Auto Saver is running', NOTIFICATION_DURATION_SECONDS)
+show_notification('Clipboard Image Saver is running', NOTIFICATION_DURATION_SECONDS)
 while True:  # The event loop that checks every <delay> seconds for new image
     sleep(delay)
     delay = min(delay + 1, MAX_DELAY_SECONDS)

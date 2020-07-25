@@ -1,4 +1,4 @@
-Clipboard Image Auto Saver is a Python script which monitors OS's clipboard and automatically saves images from there.
+Clipboard Image Saver is a set of Python scripts which monitor OS's clipboard and automatically save images from there.
 
 ## Usage on Windows
 #### 1. Install required packages using package manager [pip](https://pip.pypa.io/en/stable/).
@@ -11,7 +11,7 @@ Open config.py in your text editor of choise and edit IMAGE_SAVE_DIRECTORY_WINDO
 #### 3. Run the clipboard_image_auto_saver.bat file by double clicking it.
 The batch file is provided to launch the python script in background.
 #### 4. Add shortcut to clipboard_image_auto_saver.bat to startup
-Create shortcut first by right clicking on the clipboard_image_auto_saver.bat file and choose 'Create shortcut' from context menu. After that move brand new shotcut to C:\Users\<your user>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup folder. Windows will start script automatically on Windows load.
+Create shortcut first by right clicking on the clipboard-image-saver.bat file and choose 'Create shortcut' from context menu. After that move brand new shotcut to C:\Users\<your user>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup folder. Windows will start script automatically on Windows load.
 
 ## Usage on Linux
 #### 1. Customize your save location in config.py.
