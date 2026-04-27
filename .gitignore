@@ -111,3 +111,6 @@ venv.bak/
 
 # Visual Studio Code
 .vscode
+
+# Local config
+config.py
